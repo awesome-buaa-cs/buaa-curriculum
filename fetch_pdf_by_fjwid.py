@@ -26,11 +26,9 @@ for index, row in enumerate(rows):
         f'https://byxt.buaa.edu.cn/jwapp/sys/emapcomponent/file/getAttachmentFile/{fjwid}.do',
         headers=headers,
     )
-    print(r.status_code)
 
     # Content-Disposition: attachment; filename="<encoded-filename>.pdf"
     content_disposition = r.headers.get('Content-Disposition')
-    print(content_disposition)
     m = re.fullmatch(
         r'''attachment; filename="[^"]+"; filename\*=utf-8''(.+)''',
         content_disposition,
